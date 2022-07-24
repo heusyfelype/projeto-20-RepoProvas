@@ -6,11 +6,7 @@ import jwt from "jsonwebtoken";
 import { type } from "os";
 
 export type UserType = Omit<Users, "id" >
-export type inputRegisterUserType ={
-    email: string;
-    pass: string;
-    confirmPass: string;
-}
+
 
 
 export async function registerUserService(infos: UserType) {
@@ -18,8 +14,8 @@ export async function registerUserService(infos: UserType) {
     if (hasUser) {
         throw { type: "conflict", message: "Email já cadastrado" }
     }
-    const hashPass = bcrypt.hashSync(infos.pass, 12)
-    infos.pass = hashPass
+    const hashpassword = bcrypt.hashSync(infos.password, 12)
+    infos.password = hashpassword
     await createUser(infos)
 }
 
@@ -28,7 +24,7 @@ export async function signInService(infos:UserType) {
     if(!user){
         throw {type: "unauthorized", message: "Usuário não cadastrado!"}
     }
-    if(bcrypt.compareSync(infos.pass, user.pass)){
+    if(bcrypt.compareSync(infos.password, user.password)){
         const expireConfig = {expiresIn: 60*60*24}
         const token = jwt.sign({data: {userId:user.id}}, process.env.JWT_SECRET, expireConfig)
         return {token}

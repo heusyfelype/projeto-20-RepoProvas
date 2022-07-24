@@ -13,7 +13,7 @@ datasource db {
 model Users {
   id    Int    @id @default(autoincrement())
   email String @unique
-  pass  String
+  password  String
 
   @@map("users")
 }
@@ -64,7 +64,7 @@ model Disciplines {
   termId Int
   term   Terms  @relation(fields: [termId], references: [id])
 
-  TeachersDisciplines TeachersDisciplines[]
+  teacherDisciplines TeachersDisciplines[]
 
   @@map("disciplines")
 }
