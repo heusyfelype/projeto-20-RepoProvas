@@ -1,5 +1,5 @@
 import { Express } from "express";
-import { getTestsByCategory, getTestsByDiscipline } from "../repositories/getTests.js";
+import { getTestsByCategory, getTestsByDiscipline, getTestsByTeacher } from "../repositories/getTests.js";
 
 
 export async function getTestsByDisciplineService() {
@@ -16,5 +16,14 @@ export async function getTestsByCategoryService() {
 
     return tests
 }
+
+
+export async function getTestsByTeacherService() {
+
+    const tests = await getTestsByTeacher()
+
+    return tests
+}
+
 
 
