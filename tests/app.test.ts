@@ -236,7 +236,7 @@ describe("POST /tests", () => {
 
 
 describe("GET /tests group by Disciplines", () => {
-    it("getting tests group by term, it should return a JSON", async () => {
+    it("getting tests group by term, it should return status 200", async () => {
 
         await supertest(app).post("/sign-up").send(validBodyLogin);
         const trySignin = await supertest(app).post("/sign-in").send(validBodyLogin);
@@ -250,7 +250,7 @@ describe("GET /tests group by Disciplines", () => {
 
 
 describe("GET /tests group by Teachers", () => {
-    it("getting tests group by term, it should return a JSON", async () => {
+    it("getting tests group by term, it should return status 200", async () => {
 
         await supertest(app).post("/sign-up").send(validBodyLogin);
         const trySignin = await supertest(app).post("/sign-in").send(validBodyLogin);
@@ -264,7 +264,7 @@ describe("GET /tests group by Teachers", () => {
 
 
 describe("GET /tests group by Category", () => {
-    it("getting tests group by term, it should return a JSON", async () => {
+    it("getting tests group by term, it should return status 200", async () => {
 
         await supertest(app).post("/sign-up").send(validBodyLogin);
         const trySignin = await supertest(app).post("/sign-in").send(validBodyLogin);
