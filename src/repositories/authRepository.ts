@@ -11,3 +11,4 @@ export async function selectUserByEmail(email: string) {
 export async function createUser(infos: UserType) {
     await prisma.users.create({ data: infos })
 }
+

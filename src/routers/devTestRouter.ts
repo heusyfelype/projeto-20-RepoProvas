@@ -2,8 +2,8 @@ import { Router } from "express";
 import { returnInfosTest } from "../middlewares/returnInfosTest.js";
 
 
-const testRouter = Router();
+const devTestRouter = Router();
 
-testRouter.post("/test", returnInfosTest)
+devTestRouter.post("/test", returnInfosTest)
 
-export default testRouter
+export default devTestRouter

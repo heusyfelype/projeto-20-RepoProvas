@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { getTestsByCategoryService, getTestsByDisciplineService, getTestsByTeacherService } from "../services/getTestsService.js";
+import { getTestsByCategoryService, getTestsByDisciplineService, getTestsByTeacherService, registerTestService, testType } from "../services/getTestsService.js";
 
 export async function getTestsController(req:Request, res:Response) {
 
@@ -24,3 +24,15 @@ export async function getTestsByCategoryController(req:Request, res:Response) {
 
     res.status(200).send(tests);
 }
+
+export async function postTestController(req:Request, res:Response) {
+
+    const infos:testType = req.body;
+
+    console.log("veio ate o controller")
+    await registerTestService(infos)
+
+    res.sendStatus(201);
+}
+
+
